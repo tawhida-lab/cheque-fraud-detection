@@ -37,10 +37,10 @@ Détecter automatiquement si un chèque bancaire est **authentique ou falsifié*
 
 ```
 cheque-fraud-detection/
-├── 01_generate_dataset.py   # Génération du dataset synthétique (Pillow + OpenCV)
-├── 02_train_model.py        # Entraînement ResNet50 + Grad-CAM (PyTorch)
-├── app.py                   # Application Streamlit (démo interactive)
-├── requirements.txt         # Dépendances Python
+├── cheque_dataset_generator.py  # Génération du dataset synthétique (Pillow + OpenCV)
+├── cheque_training.py           # Entraînement ResNet50 + Grad-CAM (PyTorch)
+├── app.py                       # Application Streamlit (démo interactive)
+├── requirements.txt             # Dépendances Python
 └── README.md
 ```
 
@@ -122,7 +122,7 @@ Ce projet répond à un besoin concret dans le secteur bancaire tunisien :
 
 **Linda Trimeche**  
 Data Scientist — Tunis, Tunisie  
-[![GitHub](https://img.shields.io/badge/GitHub-Linda--BA--data-black)](https://github.com/Linda-BA-data)
+[![GitHub](https://img.shields.io/badge/GitHub-tawhida--lab-black)](https://github.com/tawhida-lab)
 
 ---
 
