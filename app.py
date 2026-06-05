@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import torch
 import torch.nn as nn
@@ -11,6 +12,12 @@ st.set_page_config(page_title="Détection de chèques falsifiés", page_icon="�
 
 @st.cache_resource
 def charger_modele():
+    model_path = "best_model.pt"
+    if not os.path.exists(model_path):
+        import urllib.request
+        url = "https://github.com/tawhida-lab/cheque-fraud-detection/releases/download/v1.0/best_model.pt"
+        with st.spinner("Téléchargement du modèle en cours..."):
+            urllib.request.urlretrieve(url, model_path)
     model = models.resnet50(weights=None)
     model.fc = nn.Sequential(
         nn.Dropout(p=0.3),
@@ -19,7 +26,7 @@ def charger_modele():
         nn.Dropout(p=0.2),
         nn.Linear(256, 2)
     )
-    model.load_state_dict(torch.load("best_model.pt", map_location="cpu"))
+    model.load_state_dict(torch.load(model_path, map_location="cpu"))
     model.eval()
     return model
 
@@ -79,17 +86,13 @@ uploaded = st.file_uploader("Uploade une image de chèque", type=["png", "jpg", 
 if uploaded:
     img_pil = Image.open(uploaded).convert("RGB")
     st.image(img_pil, caption="Image uploadée", use_container_width=True)
-
     with st.spinner("Analyse en cours..."):
         pred, conf, overlay = calculer_gradcam(img_pil)
-
     st.divider()
-
     if pred == 0:
         st.success(f"✓ Chèque AUTHENTIQUE — confiance : {conf*100:.1f}%")
     else:
         st.error(f"✗ Chèque FALSIFIÉ — confiance : {conf*100:.1f}%")
-
     st.progress(float(conf))
     st.subheader("Zones analysées par le modèle (Grad-CAM)")
     st.caption("Rouge = zone très influente · Bleu = peu influente")
