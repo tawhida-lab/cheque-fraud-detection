@@ -1,0 +1,27 @@
+# Modèle (trop lourd pour GitHub, utiliser Releases)
+best_model.pt
+
+# Dataset généré
+cheque_dataset/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs
+*.png
+courbes_apprentissage.png
+matrice_confusion.png
+gradcam_resultats.png
