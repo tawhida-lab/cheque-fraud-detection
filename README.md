@@ -90,7 +90,7 @@ Images synthétiques → Prétraitement → ResNet50 (Transfer Learning) → Gra
 
 ```bash
 # Cloner le repo
-git clone https://github.com/Linda-BA-data/cheque-fraud-detection.git
+git clone https://github.com/tawhida-lab/cheque-fraud-detection.git
 cd cheque-fraud-detection
 
 # Installer les dépendances
