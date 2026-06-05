@@ -4,9 +4,19 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-orange)
 ![Accuracy](https://img.shields.io/badge/Accuracy-96%25-brightgreen)
 ![Streamlit](https://img.shields.io/badge/Demo-Streamlit-red)
+[![Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://cheque-fraud-detection.streamlit.app)
 
+ 
 > Projet de Computer Vision appliqué à la détection de fraude documentaire bancaire.  
 > Modèle ResNet50 entraîné par Transfer Learning sur un dataset synthétique de chèques tunisiens.
+
+---
+
+
+## 🎮 Demo live
+
+👉 [Tester l'application](https://cheque-fraud-detection.streamlit.app)
+
 
 ---
 
